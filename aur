@@ -1,0 +1,65 @@
+usage() {
+    echo ""
+    echo "Usage: $0 add <package>"
+    echo "       $0 import <package>"
+    echo "       $0 setup_hooks"
+    echo "       $0 pull <package>"
+    echo "       $0 push <package>"
+    echo ""
+    exit 1
+}
+
+add_package() {
+    local package="$1"
+    [[ -z $package ]] && usage
+
+    git subtree add --prefix "packages/$package" "ssh://aur@aur.archlinux.org/$package.git" master
+}
+
+pull_package() {
+    local package="$1"
+    [[ -z $package ]] && usage
+
+    git subtree pull --prefix "packages/$package" "ssh://aur@aur.archlinux.org/$package.git" master
+}
+
+push_package() {
+    local package="$1"
+    [[ -z $package ]] && usage
+
+    git subtree push --prefix "packages/$package" "ssh://aur@aur.archlinux.org/$package.git" master
+}
+
+import_package() {
+    local package="$1"
+    [[ -z $package ]] && usage
+
+    add_package $package
+}
+
+# this sets up git hooks for auto building .SRCINFO before commit
+setup_hooks() {
+    for hook in hooks/*; do
+        ln -sf "$(pwd)/${hook}" ".git/hooks/${hook##*/}"
+    done
+}
+
+case "$1" in
+    add)
+        add_package $2
+        ;;
+    import)
+        import_package $2
+        ;;
+    pull)
+        pull_package $2
+        ;;
+    push)
+        push_package $2
+        ;;
+    setup_hooks)
+        setup_hooks $2
+        ;;
+    *)
+        usage
+esac
