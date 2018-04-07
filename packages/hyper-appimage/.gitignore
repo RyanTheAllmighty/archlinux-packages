@@ -1,0 +1,6 @@
+*
+!.gitignore
+!.SRCINFO
+!hyper-appimage.install
+!Hyper.desktop
+!PKGBUILD
