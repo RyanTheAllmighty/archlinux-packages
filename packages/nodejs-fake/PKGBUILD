@@ -5,5 +5,5 @@ pkgdesc="Nodejs pseudo package to be used when using nvm"
 pkgver=9.4.0
 pkgrel=1
 arch=(any)
-provides=(nodejs)
-conflicts=(nodejs)
+provides=('nodejs' 'npm')
+conflicts=('nodejs' 'npm')

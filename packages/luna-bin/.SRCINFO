@@ -1,0 +1,22 @@
+pkgbase = luna-bin
+	pkgdesc = npm management through a modern UI. Created with ReactJS and Redux, Material-UI. Bundled with Webpack. Build on Electron.
+	pkgver = 2.0.0
+	pkgrel = 1
+	url = https://github.com/rvpanoz/luna
+	arch = x86_64
+	license = GPL-3.0
+	depends = gconf
+	depends = libnotify
+	depends = libappindicator
+	depends = libxtst
+	depends = nss
+	depends = libxss
+	provides = luna
+	conflicts = luna
+	options = !strip
+	options = !emptydirs
+	source_x86_64 = https://github.com/rvpanoz/luna/releases/download/v2.0.0/luna_2.0.0_amd64.deb
+	md5sums_x86_64 = f27db7b17df3ea6e7fc91a64ba9e1fec
+
+pkgname = luna-bin
+

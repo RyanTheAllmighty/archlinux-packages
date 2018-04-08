@@ -71,6 +71,17 @@ The `hyper` package from AUR installs NPM, Yarn, NodeJS and Electron just to ins
 ideal for me as I want to control my own versions of those softwares and not have one package
 pollute that.
 
+### luna-bin
+
+Alternative to [luna](https://aur.archlinux.org/packages/luna/) package with dependencies correct.
+
+At the time of creation, the luna package had too many dependencies.
+
+### nodejs-fake
+
+Creates a fake package to install which provides (and conflicts with) `node` and `nvm` so that people using `nvm` do
+not have to install a global `node` or `nvm` when installing packages that require it, such as `yarn`.
+
 ### opendesktop-app-appimage
 
 This is the opendesktop-app built from the official AppImage file.

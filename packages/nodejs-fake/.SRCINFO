@@ -4,7 +4,9 @@ pkgbase = nodejs-fake
 	pkgrel = 1
 	arch = any
 	provides = nodejs
+	provides = npm
 	conflicts = nodejs
+	conflicts = npm
 
 pkgname = nodejs-fake
 
